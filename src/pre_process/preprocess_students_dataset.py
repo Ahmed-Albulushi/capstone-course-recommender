@@ -1,92 +1,75 @@
 # ============================================================
 # Pre-processing — Student Dataset Cleaning
 # ============================================================
-# Purpose:
-#   Produces a cleaned student dataset for use across all
-#   recommendation pipelines and evaluation scripts.
+# Produces cs_students_excluded_careers.csv used by all
+# recommendation pipelines and the evaluation script.
 #
-# Exclusions:
-#   Five career categories are excluded because the job
-#   postings dataset contains no query category with
-#   sufficient semantic overlap to serve as a reliable
-#   ground truth source:
+# Exclusion criteria — three categories:
 #
-#     - Quantum Computing Researcher
-#     - VR Developer
-#     - Robotics Engineer
-#     - Blockchain Engineer
-#     - SEO Specialist
+#   1. No O*NET occupation exists:
+#      Quantum Computing Researcher, VR Developer,
+#      Robotics Engineer, Blockchain Engineer, SEO Specialist
 #
-#   These careers represent emerging or specialised domains
-#   underrepresented in the 25-category job posting taxonomy.
-#   Their exclusion affects 8 of 180 students (4.4%) and
-#   does not materially alter the evaluation scope.
+#   2. Emerging roles not yet in O*NET taxonomy:
+#      Mobile App Developer, Computer Vision Engineer,
+#      DevOps Engineer, IoT Developer, Embedded Software Engineer
 #
-# Input:
-#   - datasets/cleaned/cs_students_cleaned.csv   (180 students)
+#   3. O*NET row found but description is wrong/misleading:
+#      Data Privacy Specialist  (row 134 = Information Security Engineers)
+#      Healthcare IT Specialist (row 119 = Database Admins, no healthcare)
+#      Graphics Programmer      (row 123 = generic Computer Programmers)
 #
-# Output:
-#   - datasets/cleaned/cs_students_eval.csv      (172 students)
+# Justification: exclusion ensures fairness — only careers
+# with a valid, semantically aligned O*NET description are
+# included, maintaining consistency across all pipelines.
+#
+# Input  : datasets/cleaned/cs_students_cleaned.csv
+# Output : datasets/cleaned/cs_students_excluded_careers.csv
 # ============================================================
 
 import os
 import pandas as pd
 
-# ============================================================
-#   Paths
-# ============================================================
-
-BASE = '/Users/soesoe/Documents/Capstone Project/final_capstone-course-recommender'
-DATA = os.path.join(BASE, 'datasets', 'cleaned')
-
+BASE     = '/Users/soesoe/Documents/Capstone Project/final_capstone-course-recommender'
+DATA     = os.path.join(BASE, 'datasets', 'cleaned')
 IN_FILE  = os.path.join(DATA, 'cs_students_cleaned.csv')
-OUT_FILE = os.path.join(DATA, 'cs_students_exluded_careers.csv')
-
-# ============================================================
-#   Excluded careers
-#   (no reliable job query match in job postings dataset)
-# ============================================================
+OUT_FILE = os.path.join(DATA, 'cs_students_excluded_careers.csv')
 
 EXCLUDED_CAREERS = {
+    # Category 1 — No O*NET occupation exists
     'Quantum Computing Researcher',
     'VR Developer',
     'Robotics Engineer',
     'Blockchain Engineer',
     'SEO Specialist',
+    # Category 2 — Emerging roles not in O*NET taxonomy
+    'Mobile App Developer',
+    'Computer Vision Engineer',
+    'DevOps Engineer',
+    'IoT Developer',
+    'Embedded Software Engineer',
+    # Category 3 — Wrong/misleading O*NET row
+    'Data Privacy Specialist',
+    'Healthcare IT Specialist',
+    'Graphics Programmer',
 }
 
-# ============================================================
-#   Load and filter
-# ============================================================
-
-students = pd.read_csv(IN_FILE)
+students      = pd.read_csv(IN_FILE)
+excluded      = students[students['Future Career'].isin(EXCLUDED_CAREERS)]
+students_eval = students[~students['Future Career'].isin(EXCLUDED_CAREERS)].reset_index(drop=True)
 
 print('=' * 65)
 print('STUDENT DATASET PRE-PROCESSING')
 print('=' * 65)
 print(f'Original students     : {len(students)}')
-print(f'Unique careers        : {students["Future Career"].nunique()}')
-
-# Show excluded students
-excluded = students[students['Future Career'].isin(EXCLUDED_CAREERS)]
-print(f'\nExcluded careers      : {sorted(EXCLUDED_CAREERS)}')
+print(f'Excluded careers      : {len(EXCLUDED_CAREERS)}')
 print(f'Excluded students     : {len(excluded)} ({len(excluded)/len(students)*100:.1f}%)')
-print('\nBreakdown:')
+print(f'\nBreakdown:')
 print(excluded['Future Career'].value_counts().to_string())
-
-# Filter
-students_eval = students[~students['Future Career'].isin(EXCLUDED_CAREERS)].copy()
-students_eval = students_eval.reset_index(drop=True)
-
 print(f'\nRetained students     : {len(students_eval)}')
 print(f'Retained careers      : {students_eval["Future Career"].nunique()}')
 
-# ============================================================
-#   Save
-# ============================================================
-
 students_eval.to_csv(OUT_FILE, index=False)
-
 print(f'\nSaved → {OUT_FILE}')
-print('\nCareer distribution in eval dataset:')
+print('\nCareer distribution:')
 print(students_eval['Future Career'].value_counts().to_string())

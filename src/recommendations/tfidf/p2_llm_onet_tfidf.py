@@ -185,7 +185,7 @@ for career in unique_careers:
     time.sleep(0.3)
 
 os.makedirs(OUT, exist_ok=True)
-pd.DataFrame(profile_rows).to_csv(os.path.join(OUT, 'p4_profiles.csv'), index=False)
+pd.DataFrame(profile_rows).to_csv(os.path.join(OUT, 'p2_profiles.csv'), index=False)
 print(f'Profiles saved → p4_profiles.csv')
 
 course_texts = (courses['Course Name'].fillna('') + ' ' + courses['Course Description'].fillna('')).tolist()
@@ -229,7 +229,7 @@ for _, student in students.iterrows():
             'sim_score': c['sim_score'], 'final_score': c['final_score'],
         })
 
-out_path   = os.path.join(OUT, 'p4_recommendations.csv')
+out_path   = os.path.join(OUT, 'p2_recommendations.csv')
 results_df = pd.DataFrame(all_recs)
 with open(out_path, 'w') as f:
     f.write('# Pipeline      : P4 — Career + O*NET → LLM → TF-IDF\n')

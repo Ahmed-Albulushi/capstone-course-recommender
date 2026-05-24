@@ -1,10 +1,9 @@
 # ============================================================
-# Pipeline 8 — LLM Profile → TF-IDF (Unfiltered)
+# Pipeline 3 — Career Title → LLM → TF-IDF
 # ============================================================
 # Query construction:
-#   Career title + O*NET description + SFIA descriptions
-#   → LLM (claude-haiku-4-5-20251001) distils into a
-#     focused 80-120 word plain-text learning profile
+#   Career title only → LLM generates a focused learning
+#   profile using its own knowledge (no source data passed)
 #   One API call per unique career (28 calls total)
 #
 # Retrieval:
@@ -20,15 +19,21 @@
 # Course text: Course Name + Course Description ONLY
 #   Skills tags excluded — reserved for evaluation
 #
+# Comparison:
+#   P3 vs P5 → effect of adding O*NET to LLM prompt
+#   P3 vs P4 → effect of adding O*NET+SFIA to LLM prompt
+#   P3 vs P1 → effect of LLM distillation (career title only)
+#
+# LLM: claude-haiku-4-5-20251001 (Anthropic)
+#   Uses own knowledge — no structured source data provided
+#
 # Input:
 #   - datasets/cleaned/cs_students_excluded_careers.csv
 #   - datasets/cleaned/Coursera_cleaned.csv
-#   - datasets/cleaned/onet_occupation_data.xlsx
-#   - datasets/cleaned/sfia_standard.csv
 #
 # Output:
-#   - results/recommendations/tfidf/unfiltered/p8_recommendations.csv
-#   - results/recommendations/tfidf/unfiltered/p8_profiles.csv
+#   - results/recommendations/tfidf/p3_recommendations.csv
+#   - results/recommendations/tfidf/p3_profiles.csv
 # ============================================================
 
 import os
@@ -45,7 +50,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 BASE = '/Users/soesoe/Documents/Capstone Project/final_capstone-course-recommender'
 DATA = os.path.join(BASE, 'datasets', 'cleaned')
-OUT  = os.path.join(BASE, 'results', 'recommendations', 'tfidf', 'unfiltered')
+OUT  = os.path.join(BASE, 'results', 'recommendations', 'tfidf')
 
 # ============================================================
 #   Configuration
@@ -63,79 +68,11 @@ HEADERS = {
 }
 
 # ============================================================
-#   Career mappings
-# ============================================================
-
-CAREER_ONET_ROW = {
-    'Web Developer':                126,
-    'Information Security Analyst': 113,
-    'Mobile App Developer':         124,
-    'Database Administrator':       119,
-    'Cloud Solutions Architect':    137,
-    'Software Engineer':            124,
-    'Machine Learning Engineer':    144,
-    'NLP Research Scientist':       114,
-    'Graphics Programmer':          123,
-    'Data Scientist':               144,
-    'Data Analyst':                 145,
-    'AI Researcher':                114,
-    'Bioinformatician':             215,
-    'UX Designer':                  127,
-    'Machine Learning Researcher':  'combined_114_144',
-    'Security Analyst':             113,
-    'Embedded Software Engineer':   182,
-    'Ethical Hacker':               133,
-    'Computer Vision Engineer':     114,
-    'DevOps Engineer':              124,
-    'IoT Developer':                'combined_124_182',
-    'NLP Engineer':                 144,
-    'Data Privacy Specialist':      134,
-    'Geospatial Analyst':           131,
-    'Distributed Systems Engineer': 117,
-    'Digital Forensics Specialist': 135,
-    'Game Developer':               123,
-    'Healthcare IT Specialist':     119,
-}
-
-CAREER_SFIA_CODES = {
-    'Web Developer':                ['PROG', 'DESN'],
-    'Information Security Analyst': ['SCTY', 'VUAS', 'SCAD'],
-    'Mobile App Developer':         ['PROG', 'SWDN'],
-    'Database Administrator':       ['DBDS', 'DBAD', 'DATM'],
-    'Cloud Solutions Architect':    ['ARCH', 'IFDN'],
-    'Software Engineer':            ['PROG', 'SLEN'],
-    'Machine Learning Engineer':    ['MLNG', 'DATS'],
-    'NLP Research Scientist':       ['MLNG', 'RSCH'],
-    'Graphics Programmer':          ['ADEV', 'PROG'],
-    'Data Scientist':               ['DATS', 'DAAN', 'MLNG'],
-    'Data Analyst':                 ['DAAN', 'BINT', 'VISL'],
-    'AI Researcher':                ['MLNG', 'RSCH', 'AIDE'],
-    'Bioinformatician':             ['SCMO', 'DATS'],
-    'UX Designer':                  ['HCEV', 'UNAN', 'URCH'],
-    'Machine Learning Researcher':  ['MLNG', 'RSCH'],
-    'Security Analyst':             ['SCTY', 'VUAS'],
-    'Embedded Software Engineer':   ['RESD', 'PROG'],
-    'Ethical Hacker':               ['PENT', 'VUAS'],
-    'Computer Vision Engineer':     ['MLNG', 'DATS'],
-    'DevOps Engineer':              ['DEPL', 'RELM', 'CFMG'],
-    'IoT Developer':                ['RESD', 'NTDS'],
-    'NLP Engineer':                 ['MLNG', 'DATS'],
-    'Data Privacy Specialist':      ['PEDP', 'INAS'],
-    'Geospatial Analyst':           ['DAAN', 'SCMO'],
-    'Distributed Systems Engineer': ['NTDS', 'DESN'],
-    'Digital Forensics Specialist': ['DGFS', 'CRIM'],
-    'Game Developer':               ['ADEV', 'PROG'],
-    'Healthcare IT Specialist':     ['DBAD', 'SCTY'],
-}
-
-# ============================================================
 #   Step 1 — Load datasets
 # ============================================================
 
 students = pd.read_csv(os.path.join(DATA, 'cs_students_excluded_careers.csv'))
 courses  = pd.read_csv(os.path.join(DATA, 'Coursera_cleaned.csv'))
-onet     = pd.read_excel(os.path.join(DATA, 'onet_occupation_data.xlsx'))
-sfia     = pd.read_csv(os.path.join(DATA, 'sfia_standard.csv'), encoding='latin1')
 
 # Normalise course rating
 courses['Course Rating'] = pd.to_numeric(courses['Course Rating'], errors='coerce')
@@ -144,85 +81,42 @@ courses['Course Rating'] = courses['Course Rating'].fillna(median_rating)
 courses['rating_norm']   = courses['Course Rating'] / 5.0
 
 print('=' * 65)
-print('PIPELINE 8 — LLM Profile → TF-IDF (Unfiltered)')
+print('PIPELINE 3 — Career Title → LLM → TF-IDF')
 print('=' * 65)
 print(f'Students : {len(students)}')
 print(f'Courses  : {len(courses)}')
 print(f'Top N    : {TOP_N}')
 
 # ============================================================
-#   Step 2 — Description retrieval functions
-# ============================================================
-
-def get_onet_description(career, onet_df, career_map):
-    row_val = career_map.get(career)
-    if row_val is None:
-        return ''
-    if row_val == 'combined_114_144':
-        return onet_df.iloc[112]['Description'] + ' ' + onet_df.iloc[142]['Description']
-    if row_val == 'combined_124_182':
-        return onet_df.iloc[122]['Description'] + ' ' + onet_df.iloc[180]['Description']
-    return onet_df.iloc[row_val - 2]['Description']
-
-def get_sfia_description(codes, sfia_df):
-    all_text = []
-    for code in codes:
-        matches = sfia_df[sfia_df['Code'] == code]
-        if matches.empty:
-            continue
-        row   = matches.iloc[0]
-        parts = [str(row[c]) for c in [
-            'Overall description', 'Guidance notes',
-            'Level 1 description', 'Level 2 description',
-            'Level 3 description', 'Level 4 description',
-            'Level 5 description', 'Level 6 description',
-            'Level 7 description'
-        ]]
-        all_text.append(' '.join([p for p in parts if p != 'nan']))
-    return ' '.join(all_text)
-
-# ============================================================
-#   Step 3 — LLM profile generation
-#            Strips markdown programmatically as safety net
+#   Step 2 — LLM profile generation
+#            Career title only — LLM uses its own knowledge
+#            No structured source data passed
 # ============================================================
 
 def clean_profile(text):
-    """Remove markdown headers, bullets, and extra whitespace."""
-    text = re.sub(r'^#+\s.*$', '', text, flags=re.MULTILINE)  # headers
-    text = re.sub(r'^\s*[-*•]\s+', '', text, flags=re.MULTILINE)  # bullets
-    text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)  # bold
-    text = re.sub(r'\*(.+?)\*', r'\1', text)       # italic
-    text = re.sub(r'\n{2,}', ' ', text)             # multiple newlines
+    """Remove any markdown formatting as safety net."""
+    text = re.sub(r'^#+\s.*$', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^\s*[-*•]\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)
+    text = re.sub(r'\*(.+?)\*', r'\1', text)
+    text = re.sub(r'\n{2,}', ' ', text)
     return text.strip()
 
-def generate_profile(career, onet_desc, sfia_desc):
+def generate_profile(career):
     """
-    Calls claude-haiku-4-5-20251001 to distil Career + O*NET + SFIA
-    into a focused 80-120 word plain-text learning interest profile.
-    LLM acts as compression step only — no external knowledge added.
+    Calls LLM with career title only.
+    LLM draws from its own knowledge to generate a focused
+    learning interest profile — no source data provided.
     """
-    source = f"""Career: {career}
-
-O*NET Description:
-{onet_desc[:1500]}
-
-SFIA Skill Descriptions:
-{sfia_desc[:1500]}"""
-
     prompt = f"""You are helping build a course recommendation system for CS students.
 
-Based ONLY on the source data below, write a learning interest profile for a student 
-who wants to become a {career}.
+Generate a focused learning interest profile for a student who wants to become a {career}.
 
 STRICT RULES — you must follow all of these:
 - Plain paragraph only — absolutely NO headers, NO bullet points, NO bold, NO markdown
 - 80 to 120 words exactly
-- Use only information from the source data — do not add external knowledge
 - Write in third person as learning goals (e.g. "The student wants to learn...")
-- Focus on specific tools, technologies, and techniques
-
-Source data:
-{source}"""
+- Focus on specific tools, technologies, techniques, and skills relevant to this career"""
 
     payload = {
         'model':      'claude-haiku-4-5-20251001',
@@ -230,24 +124,22 @@ Source data:
         'messages':   [{'role': 'user', 'content': prompt}],
     }
 
-    for attempt in range(3):
+    for attempt in range(5):
         response = requests.post(API_URL, headers=HEADERS, json=payload)
         if response.status_code == 200:
             data = response.json()
             raw  = data['content'][0]['text'].strip()
             return clean_profile(raw)
         elif response.status_code == 529:
-            print(f'    [RETRY {attempt+1}/3] API overloaded, waiting 10s...')
-            time.sleep(10)
+            print(f'    [RETRY {attempt+1}/5] API overloaded, waiting 30s...')
+            time.sleep(30)
         else:
             print(f'    [ERROR] API returned {response.status_code}: {response.text}')
             break
     return ''
 
-
-
 # ============================================================
-#   Step 4 — Generate LLM profiles (one per unique career)
+#   Step 3 — Generate profiles (one per unique career)
 # ============================================================
 
 print('\nGenerating LLM profiles...')
@@ -259,35 +151,33 @@ profile_rows  = []
 skipped       = []
 
 for career in unique_careers:
-    onet_desc = get_onet_description(career, onet, CAREER_ONET_ROW)
-    sfia_desc = get_sfia_description(CAREER_SFIA_CODES.get(career, []), sfia)
+    print(f'  Generating: {career}')
+    profile = generate_profile(career)
 
-    if not onet_desc and not sfia_desc:
-        print(f'  [SKIP] No source data for: {career}')
+    if not profile:
+        print(f'  [SKIP] Failed to generate profile for: {career}')
         skipped.append(career)
         continue
 
-    print(f'  Generating: {career}')
-    profile = generate_profile(career, onet_desc, sfia_desc)
     profile_cache[career] = profile
     profile_rows.append({
-        'career':        career,
-        'profile':       profile,
-        'word_count':    len(profile.split()),
-        'onet_chars':    len(onet_desc),
-        'sfia_chars':    len(sfia_desc),
+        'career':     career,
+        'profile':    profile,
+        'word_count': len(profile.split()),
     })
     time.sleep(0.3)
 
-# Save profiles for inspection
+# Save profiles
 os.makedirs(OUT, exist_ok=True)
 profiles_df = pd.DataFrame(profile_rows)
-profiles_df.to_csv(os.path.join(OUT, 'p8_profiles.csv'), index=False)
-print(f'\nProfiles saved → p8_profiles.csv')
+profiles_df.to_csv(os.path.join(OUT, 'p3_profiles.csv'), index=False)
+print(f'\nProfiles saved → p3_profiles.csv')
 print(f'Avg word count: {profiles_df["word_count"].mean():.0f} words')
 
 # ============================================================
-#   Step 5 — Build course corpus
+#   Step 4 — Build course corpus
+#            Course Name + Description only
+#            Skills tags excluded for evaluation independence
 # ============================================================
 
 course_texts = (
@@ -298,7 +188,7 @@ course_texts = (
 print(f'\nCourse corpus built: {len(course_texts)} documents')
 
 # ============================================================
-#   Step 6 — TF-IDF matching function
+#   Step 5 — TF-IDF matching function
 # ============================================================
 
 def recommend_tfidf(query, course_corpus, courses_df, top_n=TOP_N):
@@ -326,10 +216,10 @@ def rerank(matches):
     return sorted(matches, key=lambda x: x['final_score'], reverse=True)
 
 # ============================================================
-#   Step 7 — Run for all students
+#   Step 6 — Run for all students (cached per career)
 # ============================================================
 
-all_recs     = []
+all_recs          = []
 career_cache_recs = {}
 
 print('\nGenerating recommendations...')
@@ -364,15 +254,16 @@ for _, student in students.iterrows():
         })
 
 # ============================================================
-#   Step 8 — Save with metadata header
+#   Step 7 — Save with metadata header
 # ============================================================
 
-out_path   = os.path.join(OUT, 'p8_recommendations.csv')
+out_path   = os.path.join(OUT, 'p3_recommendations.csv')
 results_df = pd.DataFrame(all_recs)
 
 with open(out_path, 'w') as f:
-    f.write('# Pipeline      : P8 — LLM Profile → TF-IDF (Unfiltered)\n')
-    f.write('# Query         : LLM-distilled profile from Career + O*NET + SFIA\n')
+    f.write('# Pipeline      : P3 — Career Title → LLM → TF-IDF\n')
+    f.write('# Query         : LLM-generated profile from career title only\n')
+    f.write('# LLM source    : LLM own knowledge — no structured data passed\n')
     f.write('# Retrieval     : TF-IDF cosine similarity\n')
     f.write('# Domain filter : None\n')
     f.write('# LLM model     : claude-haiku-4-5-20251001\n')

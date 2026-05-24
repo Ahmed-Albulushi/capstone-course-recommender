@@ -1,9 +1,9 @@
 # ============================================================
-# Pipeline 7 — O*NET + SFIA → TF-IDF (Unfiltered)
+# Pipeline 1 — Career + O*NET → TF-IDF
 # ============================================================
 # Query construction:
-#   Career title + O*NET occupation description +
-#   SFIA full skill descriptions (all 7 levels)
+#   Career title + O*NET occupation description only
+#   No SFIA — isolates O*NET contribution
 #
 # Retrieval:
 #   TF-IDF vectorisation + cosine similarity
@@ -13,19 +13,22 @@
 # Re-ranking:
 #   final_score = sim_score × (course_rating / 5.0)
 #
+# Domain filter: None
+#
 # Course text: Course Name + Course Description ONLY
 #   Skills tags excluded — reserved for evaluation
 #
-# Domain filter: None
+# Comparison:
+#   P1 vs P2 → effect of adding SFIA to O*NET
+#   P1 vs P3 → effect of LLM distillation on O*NET-only query
 #
 # Input:
-#   - datasets/cleaned/cs_students_cleaned.csv
+#   - datasets/cleaned/cs_students_excluded_careers.csv
 #   - datasets/cleaned/Coursera_cleaned.csv
 #   - datasets/cleaned/onet_occupation_data.xlsx
-#   - datasets/cleaned/sfia_standard.csv
 #
 # Output:
-#   - results/recommendations/tfidf/unfiltered/p7_recommendations.csv
+#   - results/recommendations/tfidf/p1_recommendations.csv
 # ============================================================
 
 import os
@@ -39,17 +42,17 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 BASE = '/Users/soesoe/Documents/Capstone Project/final_capstone-course-recommender'
 DATA = os.path.join(BASE, 'datasets', 'cleaned')
-OUT  = os.path.join(BASE, 'results', 'recommendations', 'tfidf', 'unfiltered')
+OUT  = os.path.join(BASE, 'results', 'recommendations', 'tfidf')
 
 # ============================================================
 #   Configuration
 # ============================================================
 
-TOP_N      = 10
-MAX_FEATS  = 20000    # TF-IDF vocabulary size
+TOP_N     = 10
+MAX_FEATS = 20000
 
 # ============================================================
-#   Shared constants — Career mappings
+#   Career → O*NET row mapping
 # ============================================================
 
 CAREER_ONET_ROW = {
@@ -67,61 +70,20 @@ CAREER_ONET_ROW = {
     'AI Researcher':                114,
     'Bioinformatician':             215,
     'UX Designer':                  127,
-    'Quantum Computing Researcher': 114,
     'Machine Learning Researcher':  'combined_114_144',
     'Security Analyst':             113,
     'Embedded Software Engineer':   182,
-    'Robotics Engineer':            185,
     'Ethical Hacker':               133,
     'Computer Vision Engineer':     114,
     'DevOps Engineer':              124,
     'IoT Developer':                'combined_124_182',
     'NLP Engineer':                 144,
-    'Blockchain Engineer':          136,
-    'SEO Specialist':               88,
     'Data Privacy Specialist':      134,
     'Geospatial Analyst':           131,
     'Distributed Systems Engineer': 117,
     'Digital Forensics Specialist': 135,
     'Game Developer':               123,
     'Healthcare IT Specialist':     119,
-    'VR Developer':                 123,
-}
-
-CAREER_SFIA_CODES = {
-    'Web Developer':                ['PROG', 'DESN'],
-    'Information Security Analyst': ['SCTY', 'VUAS', 'SCAD'],
-    'Mobile App Developer':         ['PROG', 'SWDN'],
-    'Database Administrator':       ['DBDS', 'DBAD', 'DATM'],
-    'Cloud Solutions Architect':    ['ARCH', 'IFDN'],
-    'Software Engineer':            ['PROG', 'SLEN'],
-    'Machine Learning Engineer':    ['MLNG', 'DATS'],
-    'NLP Research Scientist':       ['MLNG', 'RSCH'],
-    'Graphics Programmer':          ['ADEV', 'PROG'],
-    'Data Scientist':               ['DATS', 'DAAN', 'MLNG'],
-    'Data Analyst':                 ['DAAN', 'BINT', 'VISL'],
-    'AI Researcher':                ['MLNG', 'RSCH', 'AIDE'],
-    'Bioinformatician':             ['SCMO', 'DATS'],
-    'UX Designer':                  ['HCEV', 'UNAN', 'URCH'],
-    'Quantum Computing Researcher': ['HPCC', 'RSCH'],
-    'Machine Learning Researcher':  ['MLNG', 'RSCH'],
-    'Security Analyst':             ['SCTY', 'VUAS'],
-    'Embedded Software Engineer':   ['RESD', 'PROG'],
-    'Robotics Engineer':            ['RESD', 'SINT'],
-    'Ethical Hacker':               ['PENT', 'VUAS'],
-    'Computer Vision Engineer':     ['MLNG', 'DATS'],
-    'DevOps Engineer':              ['DEPL', 'RELM', 'CFMG'],
-    'IoT Developer':                ['RESD', 'NTDS'],
-    'NLP Engineer':                 ['MLNG', 'DATS'],
-    'Blockchain Engineer':          ['PROG', 'SCTY'],
-    'SEO Specialist':               ['DIGM', 'MRCH'],
-    'Data Privacy Specialist':      ['PEDP', 'INAS'],
-    'Geospatial Analyst':           ['DAAN', 'SCMO'],
-    'Distributed Systems Engineer': ['NTDS', 'DESN'],
-    'Digital Forensics Specialist': ['DGFS', 'CRIM'],
-    'Game Developer':               ['ADEV', 'PROG'],
-    'Healthcare IT Specialist':     ['DBAD', 'SCTY'],
-    'VR Developer':                 ['ADEV', 'PROG'],
 }
 
 # ============================================================
@@ -131,23 +93,22 @@ CAREER_SFIA_CODES = {
 students = pd.read_csv(os.path.join(DATA, 'cs_students_excluded_careers.csv'))
 courses  = pd.read_csv(os.path.join(DATA, 'Coursera_cleaned.csv'))
 onet     = pd.read_excel(os.path.join(DATA, 'onet_occupation_data.xlsx'))
-sfia     = pd.read_csv(os.path.join(DATA, 'sfia_standard.csv'), encoding='latin1')
 
-# Normalise course rating: replace non-numeric with median, scale to [0, 1]
+# Normalise course rating
 courses['Course Rating'] = pd.to_numeric(courses['Course Rating'], errors='coerce')
 median_rating            = courses['Course Rating'].median()
 courses['Course Rating'] = courses['Course Rating'].fillna(median_rating)
 courses['rating_norm']   = courses['Course Rating'] / 5.0
 
 print('=' * 65)
-print('PIPELINE 7 — O*NET + SFIA → TF-IDF (Unfiltered)')
+print('PIPELINE 1 — Career + O*NET → TF-IDF')
 print('=' * 65)
 print(f'Students : {len(students)}')
 print(f'Courses  : {len(courses)}')
 print(f'Top N    : {TOP_N}')
 
 # ============================================================
-#   Step 2 — Description retrieval functions
+#   Step 2 — O*NET description retrieval
 # ============================================================
 
 def get_onet_description(career, onet_df, career_map):
@@ -159,23 +120,6 @@ def get_onet_description(career, onet_df, career_map):
     if row_val == 'combined_124_182':
         return onet_df.iloc[122]['Description'] + ' ' + onet_df.iloc[180]['Description']
     return onet_df.iloc[row_val - 2]['Description']
-
-def get_sfia_description(codes, sfia_df):
-    all_text = []
-    for code in codes:
-        matches = sfia_df[sfia_df['Code'] == code]
-        if matches.empty:
-            continue
-        row   = matches.iloc[0]
-        parts = [str(row[c]) for c in [
-            'Overall description', 'Guidance notes',
-            'Level 1 description', 'Level 2 description',
-            'Level 3 description', 'Level 4 description',
-            'Level 5 description', 'Level 6 description',
-            'Level 7 description'
-        ]]
-        all_text.append(' '.join([p for p in parts if p != 'nan']))
-    return ' '.join(all_text)
 
 # ============================================================
 #   Step 3 — Build course corpus
@@ -191,20 +135,14 @@ course_texts = (
 print(f'\nCourse corpus built: {len(course_texts)} documents')
 
 # ============================================================
-#   Step 4 — Build career queries
-#            One query per unique career
-#            Fit TF-IDF once per career query
+#   Step 4 — TF-IDF matching function
 # ============================================================
 
 def recommend_tfidf(query, course_corpus, courses_df, top_n=TOP_N):
-    """
-    Fits TF-IDF on [query] + full course corpus.
-    Returns top_n courses ranked by cosine similarity.
-    """
-    corpus = [query] + course_corpus
-    vec    = TfidfVectorizer(stop_words='english', max_features=MAX_FEATS)
-    tfidf  = vec.fit_transform(corpus)
-    scores = cosine_similarity(tfidf[0:1], tfidf[1:]).flatten()
+    corpus  = [query] + course_corpus
+    vec     = TfidfVectorizer(stop_words='english', max_features=MAX_FEATS)
+    tfidf   = vec.fit_transform(corpus)
+    scores  = cosine_similarity(tfidf[0:1], tfidf[1:]).flatten()
     top_idx = scores.argsort()[-top_n:][::-1]
 
     return [
@@ -225,14 +163,12 @@ def rerank(matches):
     return sorted(matches, key=lambda x: x['final_score'], reverse=True)
 
 # ============================================================
-#   Step 5 — Run for all students
-#            TF-IDF is computed once per unique career
-#            to avoid redundant computation
+#   Step 5 — Run for all students (cached per career)
 # ============================================================
 
-all_recs       = []
-skipped        = []
-career_cache   = {}   # cache results per career
+all_recs     = []
+skipped      = []
+career_cache = {}
 
 print('\nGenerating recommendations...')
 
@@ -241,15 +177,15 @@ for _, student in students.iterrows():
 
     if career not in career_cache:
         onet_desc = get_onet_description(career, onet, CAREER_ONET_ROW)
-        sfia_desc = get_sfia_description(CAREER_SFIA_CODES.get(career, []), sfia)
 
-        if not onet_desc and not sfia_desc:
+        if not onet_desc:
+            print(f'  [SKIP] No O*NET data for: {career}')
             skipped.append(career)
             career_cache[career] = None
             continue
 
-        query               = f"{career} {onet_desc} {sfia_desc}"
-        ranked              = rerank(recommend_tfidf(query, course_texts, courses))
+        query                = f"{career} {onet_desc}"
+        ranked               = rerank(recommend_tfidf(query, course_texts, courses))
         career_cache[career] = ranked
         print(f'  Computed: {career}')
 
@@ -274,13 +210,26 @@ for _, student in students.iterrows():
         })
 
 # ============================================================
-#   Step 6 — Save results
+#   Step 6 — Save with metadata header
 # ============================================================
 
 os.makedirs(OUT, exist_ok=True)
-out_path = os.path.join(OUT, 'p2_recommendations.csv')
+out_path   = os.path.join(OUT, 'p1_recommendations.csv')
 results_df = pd.DataFrame(all_recs)
-results_df.to_csv(out_path, index=False)
+
+with open(out_path, 'w') as f:
+    f.write('# Pipeline      : P1 — Career + O*NET → TF-IDF\n')
+    f.write('# Query         : Career title + O*NET occupation description\n')
+    f.write('# Retrieval     : TF-IDF cosine similarity\n')
+    f.write('# Domain filter : None\n')
+    f.write('# SFIA          : Not used\n')
+    f.write('# Students      : cs_students_excluded_careers.csv\n')
+    f.write('# Courses       : Coursera_cleaned.csv\n')
+    f.write(f'# Total recs    : {len(results_df)}\n')
+    f.write(f'# Students cov  : {results_df["student_id"].nunique()}\n')
+    f.write(f'# Careers cov   : {results_df["future_career"].nunique()}\n')
+    f.write('#\n')
+results_df.to_csv(out_path, mode='a', index=False)
 
 print(f'\nTotal recommendations : {len(results_df)}')
 print(f'Students covered      : {results_df["student_id"].nunique()}')

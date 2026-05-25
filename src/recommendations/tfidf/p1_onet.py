@@ -48,7 +48,7 @@ TOP_N     = 10
 MAX_FEATS = 20000
 
 # ============================================================
-#   Final O*NET mapping — 20 careers
+#   Final O*NET mapping — 17 careers
 #   Only exact and close matches retained for fairness
 # ============================================================
 
@@ -63,7 +63,6 @@ CAREER_ONET_ROW = {
     'Software Engineer':            124,
     'Web Developer':                126,
     'UX Designer':                  127,
-    'Geospatial Analyst':           131,
     'Ethical Hacker':               133,
     'Digital Forensics Specialist': 135,
     'Distributed Systems Engineer': 137,

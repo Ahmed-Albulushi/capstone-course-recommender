@@ -65,8 +65,9 @@ OUT  = os.path.join(BASE, 'results', 'evaluation')
 
 PIPELINES = {
     'P1 — O*NET only':        'p1_recommendations.csv',
-    'P3 — LLM (career only)': 'p3_recommendations.csv',
     'P2 — LLM (O*NET)':       'p2_recommendations.csv',
+    'P3 — LLM (career only)': 'p3_recommendations.csv',
+    
 }
 
 KNOWN_DOMAINS = {
@@ -107,6 +108,7 @@ CAREER_TO_CATEGORY = {
     # Design
     'UX Designer':                  ['design-and-product'],
     # Other
+    'Geospatial Analyst':           ['data-analysis'],
     # Bioinformatician spans data-analysis and probability-and-statistics genuinely
     'Bioinformatician':             ['data-analysis', 'probability-and-statistics'],
 }

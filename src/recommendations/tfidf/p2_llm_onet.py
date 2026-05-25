@@ -1,5 +1,5 @@
 # ============================================================
-# Pipeline 4 — Career + O*NET → LLM → TF-IDF
+# Pipeline 2 — Career + O*NET → LLM → TF-IDF
 # ============================================================
 # Query construction:
 #   Career title + O*NET occupation description →
@@ -63,7 +63,7 @@ HEADERS = {
 }
 
 # ============================================================
-#   Final O*NET mapping — 20 careers
+#   Final O*NET mapping — 17 careers
 # ============================================================
 
 CAREER_ONET_ROW = {
@@ -77,7 +77,6 @@ CAREER_ONET_ROW = {
     'Software Engineer':            124,
     'Web Developer':                126,
     'UX Designer':                  127,
-    'Geospatial Analyst':           131,
     'Ethical Hacker':               133,
     'Digital Forensics Specialist': 135,
     'Distributed Systems Engineer': 137,
@@ -96,7 +95,7 @@ courses['Course Rating'] = courses['Course Rating'].fillna(courses['Course Ratin
 courses['rating_norm']   = courses['Course Rating'] / 5.0
 
 print('=' * 65)
-print('PIPELINE 4 — Career + O*NET → LLM → TF-IDF')
+print('PIPELINE 2 — Career + O*NET → LLM → TF-IDF')
 print('=' * 65)
 print(f'Students : {len(students)}')
 print(f'Courses  : {len(courses)}')
@@ -230,7 +229,7 @@ for _, student in students.iterrows():
 out_path   = os.path.join(OUT, 'p2_recommendations.csv')
 results_df = pd.DataFrame(all_recs)
 with open(out_path, 'w') as f:
-    f.write('# Pipeline      : P4 — Career + O*NET → LLM → TF-IDF\n')
+    f.write('# Pipeline      : P2 — Career + O*NET → LLM → TF-IDF\n')
     f.write('# Query         : LLM profile using Career + O*NET as context\n')
     f.write('# LLM prompt    : O*NET as context — LLM expands with career knowledge\n')
     f.write('# Retrieval     : TF-IDF cosine similarity\n')

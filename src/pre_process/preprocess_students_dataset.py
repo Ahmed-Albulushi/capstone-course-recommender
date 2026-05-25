@@ -55,6 +55,7 @@ EXCLUDED_CAREERS = {
     # Category 4 — No O*NET occupation with sufficient alignment
     'Data Analyst',
     'Game Developer',
+    'Geospatial Analyst',
 }
 
 students      = pd.read_csv(IN_FILE)

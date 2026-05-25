@@ -71,7 +71,6 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 99,Laura Lee,Female,22,3.9,Computer Science,Natural Language Processing,Chatbot Development,NLP Engineer,Strong,Average,Weak
 101,Sarah Miller,Female,21,3.7,Computer Science,Cloud Computing,Cloud Migration Specialist,Cloud Solutions Architect,Weak,Strong,Average
 102,James Wilson,Male,23,3.3,Computer Science,Human-Computer Interaction,Usability Testing,UX Designer,Strong,Average,Weak
-109,John Brown,Male,20,3.6,Computer Science,Geographic Information Systems,GIS Mapping,Geospatial Analyst,Weak,Average,Strong
 110,Laura Lee,Female,21,3.9,Computer Science,Distributed Systems,Distributed Systems Architect,Distributed Systems Engineer,Weak,Average,Strong
 111,William Johnson,Male,23,3.6,Computer Science,Digital Forensics,Computer Forensic Analyst,Digital Forensics Specialist,Weak,Average,Strong
 112,Sarah Miller,Female,22,3.7,Computer Science,Bioinformatics,Protein Structure Prediction,Bioinformatician,Weak,Average,Strong

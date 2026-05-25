@@ -9,7 +9,6 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 8,Sarah Miller,Female,21,3.7,Computer Science,Cloud Computing,AWS Deployment,Cloud Solutions Architect,Weak,Strong,Average
 11,Andrew Hall,Male,21,3.8,Computer Science,Artificial Intelligence,Natural Language Processing,NLP Research Scientist,Strong,Average,Weak
 12,David Jones,Male,22,3.7,Computer Science,Web Development,Full-Stack Web App,Web Developer,Strong,Strong,Average
-14,Charles Miller,Male,23,3.5,Computer Science,Computer Graphics,Game Development,Game Developer,Weak,Average,Strong
 15,Susan Davis,Female,22,3.8,Computer Science,Software Engineering,E-commerce Website,Software Engineer,Strong,Strong,Average
 16,John Brown,Male,20,3.6,Computer Science,Cybersecurity,Network Security,Information Security Analyst,Average,Weak,Strong
 17,Laura Lee,Female,21,3.9,Computer Science,Machine Learning,Image Recognition,Machine Learning Engineer,Strong,Average,Weak
@@ -17,7 +16,6 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 19,Sarah Miller,Female,22,3.7,Computer Science,Cloud Computing,AWS Deployment,Cloud Solutions Architect,Weak,Strong,Average
 22,Andrew Hall,Male,23,3.8,Computer Science,Artificial Intelligence,Natural Language Processing,NLP Research Scientist,Strong,Average,Weak
 23,David Jones,Male,22,3.7,Computer Science,Web Development,Full-Stack Web App,Web Developer,Strong,Strong,Average
-25,Charles Miller,Male,23,3.5,Computer Science,Computer Graphics,Game Development,Game Developer,Weak,Average,Strong
 26,Susan Davis,Female,22,3.8,Computer Science,Software Engineering,E-commerce Website,Software Engineer,Strong,Strong,Average
 27,John Brown,Male,20,3.6,Computer Science,Cybersecurity,Network Security,Information Security Analyst,Average,Weak,Strong
 28,Laura Lee,Female,21,3.9,Computer Science,Machine Learning,Image Recognition,Machine Learning Engineer,Strong,Average,Weak
@@ -25,7 +23,6 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 30,Sarah Miller,Female,22,3.7,Computer Science,Cloud Computing,AWS Deployment,Cloud Solutions Architect,Weak,Strong,Average
 33,Andrew Hall,Male,23,3.8,Computer Science,Artificial Intelligence,Natural Language Processing,NLP Research Scientist,Strong,Average,Weak
 34,David Jones,Male,22,3.7,Computer Science,Web Development,Full-Stack Web App,Web Developer,Strong,Strong,Average
-36,Charles Miller,Male,23,3.5,Computer Science,Computer Graphics,Game Development,Game Developer,Weak,Average,Strong
 37,Susan Davis,Female,22,3.8,Computer Science,Software Engineering,E-commerce Website,Software Engineer,Strong,Strong,Average
 38,John Brown,Male,20,3.6,Computer Science,Cybersecurity,Network Security,Information Security Analyst,Average,Weak,Strong
 39,Laura Lee,Female,21,3.9,Computer Science,Machine Learning,Image Recognition,Machine Learning Engineer,Strong,Average,Weak
@@ -69,12 +66,9 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 87,Ava Miller,Female,21,3.6,Computer Science,Machine Learning,Deep Learning Models,Machine Learning Engineer,Strong,Average,Weak
 88,Liam Wilson,Male,23,3.8,Computer Science,Database Management,Data Warehouse Design,Database Administrator,Average,Strong,Weak
 90,Michael Brown,Male,21,3.9,Computer Science,Web Development,Front-End Development,Web Developer,Strong,Average,Weak
-91,Emily Lee,Female,20,3.7,Computer Science,Data Science,Statistical Analysis,Data Analyst,Strong,Average,Weak
-93,Olivia Brown,Female,21,3.5,Computer Science,Game Development,Mobile Game Development,Game Developer,Weak,Strong,Average
 94,John Smith,Male,23,3.6,Computer Science,Cybersecurity,Penetration Testing,Ethical Hacker,Strong,Strong,Average
 97,Emily Wilson,Female,21,3.7,Computer Science,Bioinformatics,Genomic Data Analysis,Bioinformatician,Weak,Strong,Strong
 99,Laura Lee,Female,22,3.9,Computer Science,Natural Language Processing,Chatbot Development,NLP Engineer,Strong,Average,Weak
-100,William Johnson,Male,20,3.6,Computer Science,Data Mining,Market Analysis,Data Analyst,Strong,Average,Weak
 101,Sarah Miller,Female,21,3.7,Computer Science,Cloud Computing,Cloud Migration Specialist,Cloud Solutions Architect,Weak,Strong,Average
 102,James Wilson,Male,23,3.3,Computer Science,Human-Computer Interaction,Usability Testing,UX Designer,Strong,Average,Weak
 109,John Brown,Male,20,3.6,Computer Science,Geographic Information Systems,GIS Mapping,Geospatial Analyst,Weak,Average,Strong
@@ -83,7 +77,6 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 112,Sarah Miller,Female,22,3.7,Computer Science,Bioinformatics,Protein Structure Prediction,Bioinformatician,Weak,Average,Strong
 113,James Wilson,Male,20,3.3,Computer Science,Human-Computer Interaction,User Experience Researcher,UX Designer,Weak,Average,Strong
 116,Grace Smith,Female,20,3.6,Computer Science,Artificial Intelligence,Neural Network Development,AI Researcher,Strong,Average,Weak
-117,Michael Johnson,Male,22,3.4,Computer Science,Data Science,Big Data Analytics,Data Analyst,Average,Strong,Weak
 118,Olivia Davis,Female,21,3.9,Computer Science,Software Development,Mobile App Development,Software Engineer,Strong,Strong,Average
 119,William Brown,Male,23,3.7,Computer Science,Web Development,E-commerce Website,Web Developer,Weak,Strong,Strong
 120,Emily Wilson,Female,22,3.5,Computer Science,Cybersecurity,Network Security,Information Security Analyst,Average,Weak,Strong
@@ -105,7 +98,6 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 139,Sophia Johnson,Female,22,3.5,Computer Science,Database Management,SQL Database Administration,Database Administrator,Weak,Strong,Average
 140,Michael Brown,Male,21,3.8,Computer Science,Cloud Computing,Cloud Solution Architecture,Cloud Solutions Architect,Strong,Strong,Weak
 142,William Davis,Male,23,3.3,Computer Science,Artificial Intelligence,Reinforcement Learning,AI Researcher,Strong,Weak,Average
-143,Olivia Brown,Female,22,3.5,Computer Science,Data Science,Data Mining,Data Analyst,Average,Weak,Strong
 144,John Smith,Male,21,3.6,Computer Science,Web Development,Front-End Development,Web Developer,Weak,Strong,Average
 145,Alice Johnson,Female,20,3.7,Computer Science,Machine Learning,Computer Vision,Machine Learning Engineer,Strong,Average,Weak
 146,Charlotte Davis,Female,22,3.7,Computer Science,Artificial Intelligence,Reinforcement Learning,AI Researcher,Strong,Average,Weak
@@ -123,11 +115,9 @@ Student ID,Name,Gender,Age,GPA,Major,Interested Domain,Projects,Future Career,Py
 159,Sophia Johnson,Female,22,3.5,Computer Science,Database Management,SQL Database Administration,Database Administrator,Weak,Strong,Average
 160,Michael Brown,Male,23,3.7,Computer Science,Cloud Computing,Cloud Solution Architecture,Cloud Solutions Architect,Strong,Strong,Weak
 162,William Davis,Male,21,3.7,Computer Science,Artificial Intelligence,Reinforcement Learning,AI Researcher,Strong,Weak,Average
-163,Olivia Brown,Female,22,3.5,Computer Science,Data Science,Data Mining,Data Analyst,Average,Weak,Strong
 164,John Smith,Male,23,3.6,Computer Science,Web Development,Front-End Development,Web Developer,Weak,Strong,Average
 165,Alice Johnson,Female,20,3.7,Computer Science,Machine Learning,Computer Vision,Machine Learning Engineer,Strong,Average,Weak
 166,Charlotte Davis,Female,22,3.7,Computer Science,Artificial Intelligence,Neural Network Development,AI Researcher,Strong,Average,Weak
-167,Joseph Miller,Male,21,3.6,Computer Science,Data Science,Big Data Analytics,Data Analyst,Average,Strong,Weak
 168,Emma Wilson,Female,20,3.8,Computer Science,Software Development,Mobile App Development,Software Engineer,Strong,Strong,Average
 169,Oliver Brown,Male,23,3.7,Computer Science,Web Development,E-commerce Website,Web Developer,Weak,Strong,Strong
 170,Sophia Johnson,Female,22,3.5,Computer Science,Cybersecurity,Network Security,Information Security Analyst,Average,Weak,Strong

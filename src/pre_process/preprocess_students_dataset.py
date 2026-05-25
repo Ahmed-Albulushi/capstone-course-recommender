@@ -52,6 +52,9 @@ EXCLUDED_CAREERS = {
     'Data Privacy Specialist',
     'Healthcare IT Specialist',
     'Graphics Programmer',
+    # Category 4 — No O*NET occupation with sufficient alignment
+    'Data Analyst',
+    'Game Developer',
 }
 
 students      = pd.read_csv(IN_FILE)

@@ -1,0 +1,3 @@
+Pipeline,Students,HR@10,CHR@10,P@5,MRR,nDCG@10
+P1 — O*NET only,141,0.8865,0.4369,0.478,0.7342,0.7181
+P3 — LLM (career only),141,1.0,0.783,0.8199,0.9113,0.9196

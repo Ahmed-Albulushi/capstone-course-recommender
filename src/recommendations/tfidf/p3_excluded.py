@@ -1,42 +1,33 @@
 # ============================================================
-# Pipeline 4 — Career + O*NET → LLM → TF-IDF
+# Pipeline 3 — Excluded Careers (Career Title → LLM → TF-IDF)
 # ============================================================
-# Query construction:
-#   Career title + O*NET occupation description →
-#   LLM (claude-haiku-4-5-20251001) generates a focused
-#   80-120 word learning profile
-#   One API call per unique career
+# Purpose:
+#   Generates recommendations for students whose careers were
+#   excluded from the main evaluation due to missing or
+#   misleading O*NET mappings.
 #
-# LLM prompt design:
-#   O*NET is used as CONTEXT only — LLM is encouraged to
-#   expand with career-specific knowledge beyond the source.
-#   This addresses the constraint issue where "use ONLY
-#   source data" forced generic O*NET language into profiles.
-#   Same instruction block structure as P3 for fair comparison.
+#   Since P3 uses only the career title (no O*NET), it is
+#   not affected by O*NET mapping issues and can generate
+#   recommendations for all careers.
 #
-# Retrieval:
-#   TF-IDF vectorisation + cosine similarity
-#   Library: scikit-learn (Pedregosa et al., 2011)
+#   This is a supplementary analysis — not part of the main
+#   pipeline comparison. Results reported separately.
 #
-# Re-ranking:
-#   final_score = sim_score × (course_rating / 5.0)
-#
-# Domain filter: None
-#
-# O*NET mapping: 20 careers with exact or close matches only
-#
-# Comparison:
-#   P4 vs P1 → effect of LLM distillation on O*NET query
-#   P4 vs P3 → effect of adding O*NET context to LLM prompt
+# Excluded careers included:
+#   Mobile App Developer, Computer Vision Engineer,
+#   DevOps Engineer, IoT Developer, Embedded Software Engineer,
+#   Data Privacy Specialist, Healthcare IT Specialist,
+#   Graphics Programmer, Data Analyst, Game Developer
+#   (Quantum Computing, VR, Robotics, Blockchain, SEO also
+#   included in reco but excluded from eval — no Coursera match)
 #
 # Input:
-#   - datasets/cleaned/cs_students_excluded_careers.csv
+#   - datasets/cleaned/cs_students_cleaned.csv (full dataset)
 #   - datasets/cleaned/Coursera_cleaned.csv
-#   - datasets/cleaned/onet_occupation_data.xlsx
 #
 # Output:
-#   - results/recommendations/tfidf/p4_recommendations.csv
-#   - results/recommendations/tfidf/p4_profiles.csv
+#   - results/recommendations/tfidf/p3_excluded_recommendations.csv
+#   - results/recommendations/tfidf/p3_excluded_profiles.csv
 # ============================================================
 
 import os
@@ -63,49 +54,40 @@ HEADERS = {
 }
 
 # ============================================================
-#   Final O*NET mapping — 20 careers
+#   Excluded careers — to recommend for
 # ============================================================
 
-CAREER_ONET_ROW = {
-    'Information Security Analyst': 113,
-    'Security Analyst':             113,
-    'Machine Learning Researcher':  114,
-    'AI Researcher':                114,
-    'NLP Research Scientist':       114,
-    'Cloud Solutions Architect':    117,
-    'Database Administrator':       119,
-    'Software Engineer':            124,
-    'Web Developer':                126,
-    'UX Designer':                  127,
-    'Geospatial Analyst':           131,
-    'Ethical Hacker':               133,
-    'Digital Forensics Specialist': 135,
-    'Distributed Systems Engineer': 137,
-    'Data Scientist':               144,
-    'Machine Learning Engineer':    144,
-    'NLP Engineer':                 144,
-    'Bioinformatician':             215,
+EXCLUDED_CAREERS = {
+    'Mobile App Developer', 'Computer Vision Engineer',
+    'DevOps Engineer', 'IoT Developer', 'Embedded Software Engineer',
+    'Data Privacy Specialist', 'Healthcare IT Specialist',
+    'Graphics Programmer', 'Data Analyst', 'Game Developer',
+    'Quantum Computing Researcher', 'VR Developer',
+    'Robotics Engineer', 'Blockchain Engineer', 'SEO Specialist',
 }
 
-students = pd.read_csv(os.path.join(DATA, 'cs_students_excluded_careers.csv'))
-courses  = pd.read_csv(os.path.join(DATA, 'Coursera_cleaned.csv'))
-onet     = pd.read_excel(os.path.join(DATA, 'onet_occupation_data.xlsx'))
+# ============================================================
+#   Load datasets — full student file, filter to excluded only
+# ============================================================
+
+all_students = pd.read_csv(os.path.join(DATA, 'cs_students_cleaned.csv'))
+students     = all_students[all_students['Future Career'].isin(EXCLUDED_CAREERS)].reset_index(drop=True)
+courses      = pd.read_csv(os.path.join(DATA, 'Coursera_cleaned.csv'))
 
 courses['Course Rating'] = pd.to_numeric(courses['Course Rating'], errors='coerce')
 courses['Course Rating'] = courses['Course Rating'].fillna(courses['Course Rating'].median())
 courses['rating_norm']   = courses['Course Rating'] / 5.0
 
 print('=' * 65)
-print('PIPELINE 4 — Career + O*NET → LLM → TF-IDF')
+print('PIPELINE 3 — Excluded Careers — Career Title → LLM → TF-IDF')
 print('=' * 65)
-print(f'Students : {len(students)}')
-print(f'Courses  : {len(courses)}')
-
-def get_onet_description(career, onet_df, career_map):
-    row_val = career_map.get(career)
-    if row_val is None:
-        return ''
-    return onet_df.iloc[row_val - 2]['Description']
+print(f'Excluded students : {len(students)}')
+print(f'Unique careers    : {students["Future Career"].nunique()}')
+print(f'Courses           : {len(courses)}')
+print(f'\nCareers included:')
+for c in sorted(students['Future Career'].unique()):
+    n = len(students[students['Future Career']==c])
+    print(f'  {c}: {n} students')
 
 def clean_profile(text):
     text = re.sub(r'^#+\s.*$', '', text, flags=re.MULTILINE)
@@ -115,29 +97,16 @@ def clean_profile(text):
     text = re.sub(r'\n{2,}', ' ', text)
     return text.strip()
 
-def generate_profile(career, onet_desc):
-    """
-    Revised prompt — O*NET used as context, not strict constraint.
-    LLM encouraged to expand with career-specific knowledge.
-    Addresses the issue where 'use ONLY source data' forced
-    generic O*NET language for careers with imperfect mappings.
-    Same instruction block structure as P3 for fair comparison.
-    """
+def generate_profile(career):
     prompt = f"""You are helping build a course recommendation system for CS students.
 
-Write a focused learning interest profile for a student who wants to become a {career}.
-
-Use the O*NET career context below as a starting point, but expand with specific tools,
-technologies, and skills that are directly relevant to this career in practice.
+Generate a focused learning interest profile for a student who wants to become a {career}.
 
 STRICT RULES — you must follow all of these:
 - Plain paragraph only — absolutely NO headers, NO bullet points, NO bold, NO markdown
 - 80 to 120 words exactly
 - Write in third person as learning goals (e.g. "The student wants to learn...")
-- Focus on specific tools, technologies, techniques, and skills
-
-O*NET context:
-{onet_desc[:1500]}"""
+- Focus on specific tools, technologies, techniques, and skills relevant to this career"""
 
     payload = {
         'model': 'claude-haiku-4-5-20251001',
@@ -158,33 +127,24 @@ O*NET context:
 
 print('\nGenerating LLM profiles...')
 unique_careers = students['Future Career'].unique()
-print(f'Unique careers: {len(unique_careers)}')
 
 profile_cache = {}
 profile_rows  = []
 skipped       = []
 
 for career in unique_careers:
-    onet_desc = get_onet_description(career, onet, CAREER_ONET_ROW)
-    if not onet_desc:
-        print(f'  [SKIP] No O*NET data: {career}')
-        skipped.append(career)
-        continue
     print(f'  Generating: {career}')
-    profile = generate_profile(career, onet_desc)
+    profile = generate_profile(career)
     if not profile:
         skipped.append(career)
         continue
     profile_cache[career] = profile
-    profile_rows.append({
-        'career': career, 'profile': profile,
-        'word_count': len(profile.split()), 'onet_chars': len(onet_desc)
-    })
+    profile_rows.append({'career': career, 'profile': profile, 'word_count': len(profile.split())})
     time.sleep(0.3)
 
 os.makedirs(OUT, exist_ok=True)
-pd.DataFrame(profile_rows).to_csv(os.path.join(OUT, 'p2_profiles.csv'), index=False)
-print(f'Profiles saved → p4_profiles.csv')
+pd.DataFrame(profile_rows).to_csv(os.path.join(OUT, 'p3_excluded_profiles.csv'), index=False)
+print(f'Profiles saved → p3_excluded_profiles.csv')
 
 course_texts = (courses['Course Name'].fillna('') + ' ' + courses['Course Description'].fillna('')).tolist()
 
@@ -195,9 +155,9 @@ def recommend_tfidf(query, course_corpus, courses_df, top_n=TOP_N):
     scores  = cosine_similarity(tfidf[0:1], tfidf[1:]).flatten()
     top_idx = scores.argsort()[-top_n:][::-1]
     return [{'course': courses_df.iloc[i]['Course Name'],
-             'sim_score': round(float(scores[i]), 4),
+             'sim_score': round(float(scores[i]),4),
              'rating': courses_df.iloc[i]['Course Rating'],
-             'rating_norm': round(courses_df.iloc[i]['rating_norm'], 4),
+             'rating_norm': round(courses_df.iloc[i]['rating_norm'],4),
              'level': courses_df.iloc[i]['Difficulty Level'],
              'skills': courses_df.iloc[i]['Skills']} for i in top_idx]
 
@@ -227,16 +187,14 @@ for _, student in students.iterrows():
             'sim_score': c['sim_score'], 'final_score': c['final_score'],
         })
 
-out_path   = os.path.join(OUT, 'p2_recommendations.csv')
+out_path   = os.path.join(OUT, 'p3_excluded_recommendations.csv')
 results_df = pd.DataFrame(all_recs)
+
 with open(out_path, 'w') as f:
-    f.write('# Pipeline      : P4 — Career + O*NET → LLM → TF-IDF\n')
-    f.write('# Query         : LLM profile using Career + O*NET as context\n')
-    f.write('# LLM prompt    : O*NET as context — LLM expands with career knowledge\n')
-    f.write('# Retrieval     : TF-IDF cosine similarity\n')
-    f.write('# Domain filter : None\n')
+    f.write('# Pipeline      : P3 Excluded — Career Title → LLM → TF-IDF\n')
+    f.write('# Purpose       : Recommendations for excluded career students\n')
+    f.write('# Note          : Supplementary analysis — not in main comparison\n')
     f.write('# LLM model     : claude-haiku-4-5-20251001\n')
-    f.write('# Students      : cs_students_excluded_careers.csv\n')
     f.write(f'# Total recs    : {len(results_df)}\n')
     f.write(f'# Students cov  : {results_df["student_id"].nunique()}\n')
     f.write(f'# Careers cov   : {results_df["future_career"].nunique()}\n')

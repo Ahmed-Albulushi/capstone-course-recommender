@@ -1,0 +1,44 @@
+student_id,career,expected_cats,hits,total_recs,hr10,chr10,p5,mrr,ndcg
+9,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+10,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+13,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+14,Game Developer,software-development,5,10,1,0.5,0.6,0.5,0.7486
+20,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+21,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+24,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+25,Game Developer,software-development,5,10,1,0.5,0.6,0.5,0.7486
+31,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+32,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+35,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+36,Game Developer,software-development,5,10,1,0.5,0.6,0.5,0.7486
+43,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+44,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+52,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+53,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+61,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+62,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+70,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+71,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+80,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+83,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+89,Embedded Software Engineer,software-development,4,10,1,0.4,0.4,0.5,0.6492
+91,Data Analyst,data-analysis,10,10,1,1.0,1.0,1.0,1.0
+93,Game Developer,software-development,5,10,1,0.5,0.6,0.5,0.7486
+95,Computer Vision Engineer,machine-learning,6,10,1,0.6,0.4,1.0,0.8684
+96,DevOps Engineer,"cloud-computing, software-development",7,10,1,0.7,0.8,1.0,0.8971
+98,IoT Developer,software-development,4,10,1,0.4,0.4,1.0,0.7933
+100,Data Analyst,data-analysis,10,10,1,1.0,1.0,1.0,1.0
+103,Healthcare IT Specialist,"data-management, support-and-operations",0,10,0,0.0,0.0,0.0,0.0
+108,Data Privacy Specialist,"computer-security-and-networks, security",1,10,1,0.1,0.2,1.0,1.0
+114,Healthcare IT Specialist,"data-management, support-and-operations",0,10,0,0.0,0.0,0.0,0.0
+117,Data Analyst,data-analysis,10,10,1,1.0,1.0,1.0,1.0
+124,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+127,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+128,Graphics Programmer,"software-development, design-and-product",7,10,1,0.7,0.6,1.0,0.9136
+141,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+143,Data Analyst,data-analysis,10,10,1,1.0,1.0,1.0,1.0
+154,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+161,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996
+163,Data Analyst,data-analysis,10,10,1,1.0,1.0,1.0,1.0
+167,Data Analyst,data-analysis,10,10,1,1.0,1.0,1.0,1.0
+174,Mobile App Developer,mobile-and-web-development,8,10,1,0.8,0.8,1.0,0.8996

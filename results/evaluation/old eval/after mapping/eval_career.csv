@@ -1,0 +1,41 @@
+future_career,students,hr10,chr10,p5,mrr,ndcg,pipeline
+AI Researcher,6,1.0,0.10000000000000002,0.20000000000000004,0.20000000000000004,0.3869,P1 — O*NET only
+Bioinformatician,2,1.0,0.2,0.0,0.1111,0.3618,P1 — O*NET only
+Cloud Solutions Architect,16,0.0,0.0,0.0,0.0,0.0,P1 — O*NET only
+Data Analyst,6,1.0,0.8000000000000002,0.8000000000000002,1.0,0.956,P1 — O*NET only
+Data Scientist,8,1.0,1.0,1.0,1.0,1.0,P1 — O*NET only
+Database Administrator,16,1.0,0.6,0.6,1.0,0.9489,P1 — O*NET only
+Digital Forensics Specialist,1,1.0,0.4,0.4,0.5,0.6663,P1 — O*NET only
+Distributed Systems Engineer,1,1.0,0.2,0.2,0.25,0.4413,P1 — O*NET only
+Ethical Hacker,1,1.0,0.8,0.8,1.0,0.9385,P1 — O*NET only
+Game Developer,4,1.0,0.2,0.2,1.0,0.8175,P1 — O*NET only
+Geospatial Analyst,1,1.0,0.3,0.2,0.25,0.4858,P1 — O*NET only
+Information Security Analyst,17,1.0,0.8,0.8,1.0,0.956,P1 — O*NET only
+Machine Learning Engineer,13,1.0,0.2,0.4,1.0,0.8503,P1 — O*NET only
+Machine Learning Researcher,1,1.0,0.2,0.0,0.125,0.378,P1 — O*NET only
+NLP Engineer,1,1.0,0.1,0.2,0.25,0.4307,P1 — O*NET only
+NLP Research Scientist,11,1.0,0.1,0.0,0.11109999999999999,0.301,P1 — O*NET only
+Security Analyst,1,1.0,0.8,0.8,1.0,0.956,P1 — O*NET only
+Software Engineer,14,1.0,0.5,0.4,1.0,0.8663,P1 — O*NET only
+UX Designer,2,1.0,0.4,0.4,0.25,0.5814,P1 — O*NET only
+Web Developer,19,1.0,0.5,0.8,1.0,0.9374,P1 — O*NET only
+AI Researcher,6,1.0,0.8000000000000002,0.8000000000000002,1.0,0.9099,P3 — LLM (career only)
+Bioinformatician,2,1.0,0.5,0.2,0.3333,0.6036,P3 — LLM (career only)
+Cloud Solutions Architect,16,1.0,0.9,1.0,1.0,1.0,P3 — LLM (career only)
+Data Analyst,6,1.0,0.9,0.8000000000000002,1.0,0.977,P3 — LLM (career only)
+Data Scientist,8,1.0,0.8,0.8,1.0,0.9502,P3 — LLM (career only)
+Database Administrator,16,1.0,0.4,0.4,0.3333,0.5995,P3 — LLM (career only)
+Digital Forensics Specialist,1,1.0,0.2,0.2,1.0,0.8066,P3 — LLM (career only)
+Distributed Systems Engineer,1,1.0,0.5,0.4,1.0,0.8003,P3 — LLM (career only)
+Ethical Hacker,1,1.0,0.8,0.8,1.0,0.8996,P3 — LLM (career only)
+Game Developer,4,1.0,0.6,0.6,1.0,0.9236,P3 — LLM (career only)
+Geospatial Analyst,1,1.0,0.3,0.6,1.0,0.9469,P3 — LLM (career only)
+Information Security Analyst,17,1.0,0.9,0.8,1.0,0.9504,P3 — LLM (career only)
+Machine Learning Engineer,13,1.0,0.9000000000000001,1.0,1.0,0.9842,P3 — LLM (career only)
+Machine Learning Researcher,1,1.0,0.6,0.6,0.5,0.7326,P3 — LLM (career only)
+NLP Engineer,1,1.0,1.0,1.0,1.0,1.0,P3 — LLM (career only)
+NLP Research Scientist,11,1.0,1.0,1.0,1.0,1.0,P3 — LLM (career only)
+Security Analyst,1,1.0,0.9,1.0,1.0,0.9972,P3 — LLM (career only)
+Software Engineer,14,1.0,0.6,0.8,1.0,0.9582,P3 — LLM (career only)
+UX Designer,2,1.0,0.9,1.0,1.0,1.0,P3 — LLM (career only)
+Web Developer,19,1.0,0.9,1.0,1.0,0.9842,P3 — LLM (career only)

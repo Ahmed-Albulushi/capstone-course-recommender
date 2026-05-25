@@ -65,8 +65,9 @@ OUT  = os.path.join(BASE, 'results', 'evaluation')
 
 PIPELINES = {
     'P1 — O*NET only':        'p1_recommendations.csv',
+    'P2 — LLM (O*NET)':       'p2_recommendations.csv',
     'P3 — LLM (career only)': 'p3_recommendations.csv',
-    'P4 — LLM (O*NET)':       'p4_recommendations.csv',
+    
 }
 
 KNOWN_DOMAINS = {
@@ -81,25 +82,34 @@ KNOWN_DOMAINS = {
 # ============================================================
 
 CAREER_TO_CATEGORY = {
+    # Security careers — both categories kept: Coursera splits security
+    # courses across computer-science and information-technology domains
+    # but both represent the same subject matter
     'Information Security Analyst': ['computer-security-and-networks', 'security'],
     'Security Analyst':             ['computer-security-and-networks', 'security'],
     'Ethical Hacker':               ['computer-security-and-networks', 'security'],
     'Digital Forensics Specialist': ['computer-security-and-networks', 'security'],
+    # Research/ML careers
     'Machine Learning Researcher':  ['machine-learning'],
     'AI Researcher':                ['machine-learning'],
     'NLP Research Scientist':       ['machine-learning'],
     'Machine Learning Engineer':    ['machine-learning'],
     'NLP Engineer':                 ['machine-learning'],
+    # Data careers — Data Scientist spans both data-analysis and machine-learning
     'Data Scientist':               ['data-analysis', 'machine-learning'],
+    # Infrastructure/cloud
     'Cloud Solutions Architect':    ['cloud-computing'],
+    'Distributed Systems Engineer': ['cloud-computing'],
+    # Database
     'Database Administrator':       ['data-management'],
+    # Software/web
     'Software Engineer':            ['software-development'],
-    'Web Developer':                ['mobile-and-web-development', 'software-development'],
+    'Web Developer':                ['mobile-and-web-development'],
+    # Design
     'UX Designer':                  ['design-and-product'],
-    'Game Developer':               ['software-development'],
+    # Other
     'Geospatial Analyst':           ['data-analysis'],
-    'Distributed Systems Engineer': ['software-development', 'cloud-computing'],
-    'Data Analyst':                 ['data-analysis'],
+    # Bioinformatician spans data-analysis and probability-and-statistics genuinely
     'Bioinformatician':             ['data-analysis', 'probability-and-statistics'],
 }
 

@@ -1,0 +1,283 @@
+pipeline,student_id,future_career,interested_domain,expected_cats,hits,total_recs,hr@10,chr@10,p@5,mrr,ndcg@10
+P1 — O*NET only,1,Machine Learning Researcher,Artificial Intelligence,machine-learning,2,10,1,0.2,0.0,0.125,0.378
+P1 — O*NET only,2,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,3,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,4,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,5,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,6,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,7,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,8,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,11,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,12,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,14,Game Developer,Computer Graphics,software-development,2,10,1,0.2,0.2,1.0,0.8175
+P1 — O*NET only,15,Software Engineer,Software Engineering,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,16,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,17,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,18,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,19,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,22,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,23,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,25,Game Developer,Computer Graphics,software-development,2,10,1,0.2,0.2,1.0,0.8175
+P1 — O*NET only,26,Software Engineer,Software Engineering,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,27,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,28,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,29,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,30,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,33,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,34,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,36,Game Developer,Computer Graphics,software-development,2,10,1,0.2,0.2,1.0,0.8175
+P1 — O*NET only,37,Software Engineer,Software Engineering,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,38,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,39,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,40,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,41,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,42,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,45,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,46,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,47,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,48,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,49,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,50,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,51,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,54,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,55,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,56,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,57,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,58,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,59,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,60,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,63,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,64,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,65,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,66,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,67,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,68,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,69,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,72,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,73,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,74,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,75,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,76,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,77,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,78,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,79,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,81,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,82,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,84,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,85,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,86,Security Analyst,Network Security,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,87,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,88,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,90,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,91,Data Analyst,Data Science,data-analysis,8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,93,Game Developer,Game Development,software-development,2,10,1,0.2,0.2,1.0,0.8175
+P1 — O*NET only,94,Ethical Hacker,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.9385
+P1 — O*NET only,97,Bioinformatician,Bioinformatics,"data-analysis, probability-and-statistics",2,10,1,0.2,0.0,0.1111,0.3618
+P1 — O*NET only,99,NLP Engineer,Natural Language Processing,machine-learning,1,10,1,0.1,0.2,0.25,0.4307
+P1 — O*NET only,100,Data Analyst,Data Mining,data-analysis,8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,101,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,102,UX Designer,Human-Computer Interaction,design-and-product,4,10,1,0.4,0.4,0.25,0.5814
+P1 — O*NET only,109,Geospatial Analyst,Geographic Information Systems,data-analysis,3,10,1,0.3,0.2,0.25,0.4858
+P1 — O*NET only,110,Distributed Systems Engineer,Distributed Systems,"software-development, cloud-computing",2,10,1,0.2,0.2,0.25,0.4413
+P1 — O*NET only,111,Digital Forensics Specialist,Digital Forensics,"computer-security-and-networks, security",4,10,1,0.4,0.4,0.5,0.6663
+P1 — O*NET only,112,Bioinformatician,Bioinformatics,"data-analysis, probability-and-statistics",2,10,1,0.2,0.0,0.1111,0.3618
+P1 — O*NET only,113,UX Designer,Human-Computer Interaction,design-and-product,4,10,1,0.4,0.4,0.25,0.5814
+P1 — O*NET only,116,AI Researcher,Artificial Intelligence,machine-learning,1,10,1,0.1,0.2,0.2,0.3869
+P1 — O*NET only,117,Data Analyst,Data Science,data-analysis,8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,118,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,119,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,120,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,121,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,122,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,123,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,125,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,126,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,129,Software Engineer,Software Engineering,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,130,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,131,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,132,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,133,AI Researcher,Artificial Intelligence,machine-learning,1,10,1,0.1,0.2,0.2,0.3869
+P1 — O*NET only,134,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,135,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,136,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,137,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,138,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,139,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,140,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,142,AI Researcher,Artificial Intelligence,machine-learning,1,10,1,0.1,0.2,0.2,0.3869
+P1 — O*NET only,143,Data Analyst,Data Science,data-analysis,8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,144,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,145,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,146,AI Researcher,Artificial Intelligence,machine-learning,1,10,1,0.1,0.2,0.2,0.3869
+P1 — O*NET only,147,Data Scientist,Data Science,"data-analysis, machine-learning",10,10,1,1.0,1.0,1.0,1.0
+P1 — O*NET only,148,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,149,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,150,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,151,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,152,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,153,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,155,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,156,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,157,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,158,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,159,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,160,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,162,AI Researcher,Artificial Intelligence,machine-learning,1,10,1,0.1,0.2,0.2,0.3869
+P1 — O*NET only,163,Data Analyst,Data Science,data-analysis,8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,164,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,165,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,166,AI Researcher,Artificial Intelligence,machine-learning,1,10,1,0.1,0.2,0.2,0.3869
+P1 — O*NET only,167,Data Analyst,Data Science,data-analysis,8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,168,Software Engineer,Software Development,software-development,5,10,1,0.5,0.4,1.0,0.8663
+P1 — O*NET only,169,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,170,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,171,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,172,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,173,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P1 — O*NET only,175,NLP Research Scientist,Artificial Intelligence,machine-learning,1,10,1,0.1,0.0,0.1111,0.301
+P1 — O*NET only,176,Web Developer,Web Development,"mobile-and-web-development, software-development",5,10,1,0.5,0.8,1.0,0.9374
+P1 — O*NET only,177,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.956
+P1 — O*NET only,178,Machine Learning Engineer,Machine Learning,machine-learning,2,10,1,0.2,0.4,1.0,0.8503
+P1 — O*NET only,179,Database Administrator,Database Management,data-management,6,10,1,0.6,0.6,1.0,0.9489
+P1 — O*NET only,180,Cloud Solutions Architect,Cloud Computing,cloud-computing,0,10,0,0.0,0.0,0.0,0.0
+P3 — LLM (career only),1,Machine Learning Researcher,Artificial Intelligence,machine-learning,6,10,1,0.6,0.6,0.5,0.7326
+P3 — LLM (career only),2,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),3,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),4,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),5,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),6,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),7,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),8,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),11,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),12,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),14,Game Developer,Computer Graphics,software-development,6,10,1,0.6,0.6,1.0,0.9236
+P3 — LLM (career only),15,Software Engineer,Software Engineering,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),16,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),17,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),18,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),19,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),22,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),23,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),25,Game Developer,Computer Graphics,software-development,6,10,1,0.6,0.6,1.0,0.9236
+P3 — LLM (career only),26,Software Engineer,Software Engineering,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),27,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),28,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),29,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),30,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),33,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),34,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),36,Game Developer,Computer Graphics,software-development,6,10,1,0.6,0.6,1.0,0.9236
+P3 — LLM (career only),37,Software Engineer,Software Engineering,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),38,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),39,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),40,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),41,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),42,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),45,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),46,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),47,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),48,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),49,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),50,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),51,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),54,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),55,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),56,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),57,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),58,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),59,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),60,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),63,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),64,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),65,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),66,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),67,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),68,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),69,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),72,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),73,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),74,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),75,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),76,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),77,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),78,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),79,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),81,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),82,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),84,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),85,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),86,Security Analyst,Network Security,"computer-security-and-networks, security",9,10,1,0.9,1.0,1.0,0.9972
+P3 — LLM (career only),87,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),88,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),90,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),91,Data Analyst,Data Science,data-analysis,9,10,1,0.9,0.8,1.0,0.977
+P3 — LLM (career only),93,Game Developer,Game Development,software-development,6,10,1,0.6,0.6,1.0,0.9236
+P3 — LLM (career only),94,Ethical Hacker,Cybersecurity,"computer-security-and-networks, security",8,10,1,0.8,0.8,1.0,0.8996
+P3 — LLM (career only),97,Bioinformatician,Bioinformatics,"data-analysis, probability-and-statistics",5,10,1,0.5,0.2,0.3333,0.6036
+P3 — LLM (career only),99,NLP Engineer,Natural Language Processing,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),100,Data Analyst,Data Mining,data-analysis,9,10,1,0.9,0.8,1.0,0.977
+P3 — LLM (career only),101,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),102,UX Designer,Human-Computer Interaction,design-and-product,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),109,Geospatial Analyst,Geographic Information Systems,data-analysis,3,10,1,0.3,0.6,1.0,0.9469
+P3 — LLM (career only),110,Distributed Systems Engineer,Distributed Systems,"software-development, cloud-computing",5,10,1,0.5,0.4,1.0,0.8003
+P3 — LLM (career only),111,Digital Forensics Specialist,Digital Forensics,"computer-security-and-networks, security",2,10,1,0.2,0.2,1.0,0.8066
+P3 — LLM (career only),112,Bioinformatician,Bioinformatics,"data-analysis, probability-and-statistics",5,10,1,0.5,0.2,0.3333,0.6036
+P3 — LLM (career only),113,UX Designer,Human-Computer Interaction,design-and-product,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),116,AI Researcher,Artificial Intelligence,machine-learning,8,10,1,0.8,0.8,1.0,0.9099
+P3 — LLM (career only),117,Data Analyst,Data Science,data-analysis,9,10,1,0.9,0.8,1.0,0.977
+P3 — LLM (career only),118,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),119,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),120,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),121,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),122,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),123,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),125,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),126,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),129,Software Engineer,Software Engineering,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),130,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),131,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),132,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),133,AI Researcher,Artificial Intelligence,machine-learning,8,10,1,0.8,0.8,1.0,0.9099
+P3 — LLM (career only),134,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),135,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),136,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),137,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),138,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),139,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),140,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),142,AI Researcher,Artificial Intelligence,machine-learning,8,10,1,0.8,0.8,1.0,0.9099
+P3 — LLM (career only),143,Data Analyst,Data Science,data-analysis,9,10,1,0.9,0.8,1.0,0.977
+P3 — LLM (career only),144,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),145,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),146,AI Researcher,Artificial Intelligence,machine-learning,8,10,1,0.8,0.8,1.0,0.9099
+P3 — LLM (career only),147,Data Scientist,Data Science,"data-analysis, machine-learning",8,10,1,0.8,0.8,1.0,0.9502
+P3 — LLM (career only),148,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),149,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),150,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),151,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),152,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),153,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),155,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),156,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),157,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),158,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),159,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),160,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),162,AI Researcher,Artificial Intelligence,machine-learning,8,10,1,0.8,0.8,1.0,0.9099
+P3 — LLM (career only),163,Data Analyst,Data Science,data-analysis,9,10,1,0.9,0.8,1.0,0.977
+P3 — LLM (career only),164,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),165,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),166,AI Researcher,Artificial Intelligence,machine-learning,8,10,1,0.8,0.8,1.0,0.9099
+P3 — LLM (career only),167,Data Analyst,Data Science,data-analysis,9,10,1,0.9,0.8,1.0,0.977
+P3 — LLM (career only),168,Software Engineer,Software Development,software-development,6,10,1,0.6,0.8,1.0,0.9582
+P3 — LLM (career only),169,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),170,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),171,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),172,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),173,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0
+P3 — LLM (career only),175,NLP Research Scientist,Artificial Intelligence,machine-learning,10,10,1,1.0,1.0,1.0,1.0
+P3 — LLM (career only),176,Web Developer,Web Development,"mobile-and-web-development, software-development",9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),177,Information Security Analyst,Cybersecurity,"computer-security-and-networks, security",9,10,1,0.9,0.8,1.0,0.9504
+P3 — LLM (career only),178,Machine Learning Engineer,Machine Learning,machine-learning,9,10,1,0.9,1.0,1.0,0.9842
+P3 — LLM (career only),179,Database Administrator,Database Management,data-management,4,10,1,0.4,0.4,0.3333,0.5995
+P3 — LLM (career only),180,Cloud Solutions Architect,Cloud Computing,cloud-computing,9,10,1,0.9,1.0,1.0,1.0

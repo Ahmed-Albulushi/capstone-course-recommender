@@ -63,7 +63,6 @@ CAREER_ONET_ROW = {
     'Software Engineer':            124,
     'Web Developer':                126,
     'UX Designer':                  127,
-    'Game Developer':               128,
     'Geospatial Analyst':           131,
     'Ethical Hacker':               133,
     'Digital Forensics Specialist': 135,
@@ -71,7 +70,6 @@ CAREER_ONET_ROW = {
     'Data Scientist':               144,
     'Machine Learning Engineer':    144,
     'NLP Engineer':                 144,
-    'Data Analyst':                 145,
     'Bioinformatician':             215,
 }
 

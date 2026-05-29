@@ -43,6 +43,10 @@ Install with:
 
     pip install pandas scikit-learn openpyxl anthropic
 
+Pipelines P2 and P3 also require an **Anthropic API key**, which
+must be set as the environment variable `ANTHROPIC_API_KEY` before
+running. The key can be obtained from https://console.anthropic.com.
+
 ## How to run
 
 First preprocess the student dataset, which produces the working file
@@ -56,6 +60,9 @@ recommendations to `results/recommendations/tfidf/`:
     python src/recommendations/tfidf/p1_onet.py
     python src/recommendations/tfidf/p2_llm_onet.py
     python src/recommendations/tfidf/p3_llm_title.py
+
+P2 and P3 will fail if `ANTHROPIC_API_KEY` is not set (see
+Requirements).
 
 Pipelines P2 and P3 require an Anthropic API key, set as an
 environment variable:

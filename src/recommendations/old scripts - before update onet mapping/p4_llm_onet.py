@@ -62,7 +62,7 @@ OUT  = os.path.join(BASE, 'results', 'recommendations', 'tfidf')
 TOP_N     = 10
 MAX_FEATS = 20000
 
-API_KEY = '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'
+API_KEY = 'ANTHROPIC_API_KEY'
 API_URL = 'https://api.anthropic.com/v1/messages'
 HEADERS = {
     'x-api-key':         API_KEY,
